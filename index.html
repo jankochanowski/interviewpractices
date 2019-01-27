@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<title>Interview Practice</title>
 <style>
 
 button {
@@ -54,14 +54,13 @@ else {
 let aFib=0;
 let bFib=1;
 let Fsum=0;
-for(var fi=1; fi<=noff-1; fi++) {
+for(var fi=0; fi<=noff-1; fi++) {
 Fsum=aFib+bFib;
 aFib=bFib;
 bFib=Fsum;
 }
 
-document.getElementById("fib-result").innerHTML="F("+noff+") is: "+Fsum;
-return Fsum;
+document.getElementById("fib-result").innerHTML="F("+noff+") is: "+aFib;
 }
 
 
