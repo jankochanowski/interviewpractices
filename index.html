@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Interview Practice</title>
 <style>
 
@@ -18,7 +19,12 @@ border-radius:5px;}
 <body>
 <h2>Task 1</h2>
 <p class="task-desc">Finding the n-th Fibonacci number (Fibonacci sequence calculator)</p>
-<p>Enter the <em>n</em> to calculate <em>F(n)</em>:</p>
+
+<p>In mathematics, the Fibonacci numbers, commonly denoted F<sub>n</sub> form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is:<br><br><em>F<sub>0</sub>=0, F<sub>1</sub>=1,</em><br><br>and<br><br><em>F<sub>n</sub>=F<sub>n-1</sub>+F<sub>n-2</sub></em></p>
+
+
+<p>------------------</p>
+<p>Enter the <em>n</em> to calculate <em>F<sub>n</sub></em>:</p>
 <input id="fib-input"><button id="fib-button">Submit</button>
 <div id="fib-result"></div>
 <br>
@@ -60,7 +66,7 @@ aFib=bFib;
 bFib=Fsum;
 }
 
-document.getElementById("fib-result").innerHTML="F("+noff+") is: "+aFib;
+document.getElementById("fib-result").innerHTML="F<sub>"+noff+"</sub> is: "+aFib+".";
 }
 
 
@@ -107,4 +113,5 @@ button.addEventListener("click", findSum);
 </script>
 </body>
 </html>
+
 
