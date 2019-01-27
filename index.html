@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone/babel.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Interview Practice</title>
 <style>
@@ -31,6 +34,13 @@ border-radius:5px;}
 <hr>
 <br>
 <h2>Task 2</h2>
+<p class="task-desc">Simple React.js component with local state that display values from input</p>
+
+<div id="appreact"></div>
+<br>
+<hr>
+<br>
+<h2>Task 3</h2>
 <p class="task-desc">Algorithm that checks if in the random array there is any pair of 2 numbers that sum up to given sum</p>
 
 <p>Fill in the sum of 2 integers you are searching for in unordered random array.<br><br> arrayLength = <strong>15</strong> <br> scope = <strong>0-10</strong></p>
@@ -83,7 +93,7 @@ document.getElementById("fib-result").innerHTML="F<sub>"+noff+"</sub> is: "+aFib
 let fibbutton = document.getElementById("fib-button");
 fibbutton.addEventListener("click", calcFibonacci);
 //////////////////////////////////////////////
-////////// TASK 2 below this line ////////////
+////////// TASK 3 below this line ////////////
 //////////////////////////////////////////////
 let array = [];
 let arrayLength=15;
@@ -111,7 +121,62 @@ let button = document.getElementById("button");
 button.addEventListener("click", findSum);
 
 </script>
+
+<script type="text/babel">
+ 
+class App extends React.Component {
+              constructor() {
+    super();
+    this.state = {
+      name: "",
+      lastname: "",
+      displayedName: "",
+      displayedLastname: ""
+    };
+  }
+  render() {
+              return (
+      <div>
+      <p>Fill in your name:</p>
+        <input
+          id="name"
+          value={this.state.name}
+          onChange={this.handleNameChange.bind(this)}
+        />
+        <input
+          id="lastname"
+          value={this.state.lastname}
+          onChange={this.handleLastnameChange.bind(this)}
+       />
+        <button onClick={this.handleAddBtnClick.bind(this)}>
+            Submit
+        </button>
+        <br />
+        <br />
+        <output>
+           Your name & last name: {this.state.displayedName} {this.state.displayedLastname}
+        </output>
+     </div>
+  );
+}
+handleNameChange({ target: { value } }) {
+  this.setState({ name: value })
+}
+handleLastnameChange({ target: { value } }) {
+  this.setState({ lastname: value })
+}
+handleAddBtnClick(){
+              this.setState({
+              displayedName: this.state.name,
+    displayedLastname: this.state.lastname
+  })
+}
+}
+ReactDOM.render(<App />, document.getElementById("appreact"));
+
+  </script>
 </body>
 </html>
+
 
 
