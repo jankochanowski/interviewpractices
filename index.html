@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+strong {
+background-color:lightblue;
+border-radius:5px;}
+button {
+background-color:lightblue;
+}
+
+</style>
+</head>
+<body>
+<p>Fill in the sum of 2 integers you are searching for in unordered random array.<br><br> arrayLength = <strong>15</strong> <br> scope = <strong>0-10</strong></p>
+<input id="input"> 
+<button id="button">Submit</button>
+<br>
+
+
+<div id="app"></div>
+<div id="random"> </div>
+
+<script>
+let array = [];
+let arrayLength=15;
+
+
+
+
+let findSum = function () {
+let sum = document.getElementById("input").value;
+
+if(isNaN(sum) || sum=="") {alert("Invalid or empty input")}
+else {
+
+array = [];
+for(let i=0;i<arrayLength;i++) {
+var number = Math.floor(Math.random() * 10);
+array.push(number);
+}
+document.getElementById("random").innerHTML="Random array= ["+array+"]";
+
+for(var x=0;x<array.length;x++)
+
+
+
+
+}
+}
+
+
+let button = document.getElementById("button");
+button.addEventListener("click", findSum);
+
+</script>
+</body>
+</html>
+
