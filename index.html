@@ -20,7 +20,10 @@ border-radius:5px;}
 <p class="task-desc">Finding the n-th Fibonacci number (Fibonacci sequence calculator)</p>
 <p>Enter the <em>n</em> to calculate <em>F(n)</em>:</p>
 <input id="fib-input"><button id="fib-button">Submit</button>
-
+<div id="fib-result"></div>
+<br>
+<hr>
+<br>
 <h2>Task 2</h2>
 <p class="task-desc">Algorithm that checks if in the random array there is any pair of 2 numbers that sum up to given sum (Google Interview)</p>
 
@@ -38,9 +41,42 @@ border-radius:5px;}
 ////////// TASK 1 below this line ////////////
 //////////////////////////////////////////////
 
+let calcFibonacci = function() {
+document.getElementById("fib-result").innerHTML="";
+let noff = document.getElementById("fib-input").value;
+noff=noff.trim();
+
+if(isNaN(noff) || noff=="") {alert("Invalid or empty input");}
 
 
 
+else {
+let aFib=0;
+let bFib=1;
+let Fsum=0;
+for(var fi=1; fi<=noff-1; fi++) {
+Fsum=aFib+bFib;
+aFib=bFib;
+bFib=Fsum;
+}
+
+document.getElementById("fib-result").innerHTML="F("+noff+") is: "+Fsum;
+return Fsum;
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+let fibbutton = document.getElementById("fib-button");
+fibbutton.addEventListener("click", calcFibonacci);
 //////////////////////////////////////////////
 ////////// TASK 2 below this line ////////////
 //////////////////////////////////////////////
