@@ -66,7 +66,7 @@ document.getElementById("fib-result").innerHTML="";
 let noff = document.getElementById("fib-input").value;
 noff=noff.trim();
 
-if(isNaN(noff) || noff=="") {alert("Invalid or empty input");}
+if(isNaN(noff) || noff=="" || noff<0) {alert("Invalid or empty input");}
 
 
 
