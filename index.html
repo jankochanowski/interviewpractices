@@ -47,14 +47,15 @@ border-radius:5px;}
 <h2>Task 3</h2>
 <p class="task-desc">Algorithm that checks if in the random array there is any pair of 2 numbers that sum up to given sum</p>
 
-<p>Fill in the sum of 2 integers you are searching for in unordered random array.<br><br> arrayLength = <strong>15</strong> <br> scope = <strong>0-10</strong></p>
-<input id="input"> 
+<p>Fill in the sum of 2 integers you are searching for in unordered random array.<br><br> Random array length = <strong>15</strong> <br> Range of random numbers is between <strong>0 and 10</strong></p>
+<input id="input" value=16> 
 <button id="button">Submit</button>
 <br>
 
 
-<div id="app"></div>
+
 <div id="random"> </div>
+<div id="arrsearchresult"></div>
 
 <script>
 //////////////////////////////////////////////
@@ -105,22 +106,28 @@ let findSum = function () {
 let sum = document.getElementById("input").value;
 if(isNaN(sum) || sum=="") {alert("Invalid or empty input")}
 else {
+document.getElementById("arrsearchresult").innerHTML="";
 array = [];
-for(let i=0;i<arrayLength;i++) {
+for(var i=0;i<arrayLength;i++) {
 var number = Math.floor(Math.random() * 10);
 array.push(number);
 }
-document.getElementById("random").innerHTML="Random array= ["+array+"]";
+document.getElementById("random").innerHTML="Random array = ["+array+"]";
 
-
-
-
-
-
+let arrayComp=[];
+for (var i=0;i<array.length;i++) {
+var comp = sum - array[i];
+if(arrayComp.includes(array[i])) {
+document.getElementById("arrsearchresult").innerHTML="The array contains two numbers that sum up to given inputed value("+sum+"). The pair that meets this condition (first found but maybe not the only one) is: "+comp+" and "+array[i]+".";
+return true;
+}
+else {
+arrayComp.push(comp);
 }
 }
-
-
+document.getElementById("arrsearchresult").innerHTML="The array does not contain two numbers that sum up to given inputed value("+sum+").";
+}
+}
 let button = document.getElementById("button");
 button.addEventListener("click", findSum);
 
