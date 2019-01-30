@@ -123,14 +123,14 @@ let arrayComp=[];
 for (var i=0;i<array.length;i++) {
 var comp = sum - array[i];
 if(arrayComp.includes(array[i])) {
-document.getElementById("arrsearchresult").innerHTML="The array contains two numbers that sum up to given inputed value("+sum+"). The pair that meets this condition (first found but maybe not the only one) is: "+comp+" and "+array[i]+".";
+document.getElementById("arrsearchresult").innerHTML="<strong>Result</strong>: The array contains two numbers that sum up to given inputed value("+sum+"). The pair that meets this condition (first found but maybe not the only one) is: "+comp+" and "+array[i]+".";
 return true;
 }
 else {
 arrayComp.push(comp);
 }
 }
-document.getElementById("arrsearchresult").innerHTML="The array does not contain two numbers that sum up to given inputed value("+sum+").";
+document.getElementById("arrsearchresult").innerHTML="<strong>Result</strong>: The array does not contain two numbers that sum up to given inputed value("+sum+").";
 }
 }
 let button = document.getElementById("button");
