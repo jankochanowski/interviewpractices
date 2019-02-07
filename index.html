@@ -60,11 +60,20 @@
 
     <div id="random"> </div>
     <div id="arrsearchresult"></div>
+        <br>
+    <hr>
+    <br>
+    <h2>Task 3</h2>
+    <p class="task-desc">Binary search algorithm: Binary search in random sorted array</p>
+    <p>Enter the value you want to binary search in the array, which will be selected at random, then sorted, then printed below after clicking. Take into account <strong>the range of random elements: between 1 and 14.</strong></p>
+<input type="number" id="bin-input"><button id="bin-butt">Start binary search algorithm</button>
+<div id= "binary-random-array"></div>
+<div id="binresult"></div>
 
     <br>
     <hr>
     <br>
-    <h2>Task 3</h2>
+    <h2>Task 4</h2>
     <p class="task-desc">Simple React.js component with local state that display values from input</p>
 
     <div id="appreact"></div>
@@ -102,7 +111,7 @@
         let fibbutton = document.getElementById("fib-button");
         fibbutton.addEventListener("click", calcFibonacci);
         //////////////////////////////////////////////
-        ////////// TASK 3 below this line ////////////
+        ////////// TASK 2 below this line ////////////
         //////////////////////////////////////////////
         let array = [];
         let arrayLength = 15;
@@ -134,9 +143,67 @@
         }
         let button = document.getElementById("button");
         button.addEventListener("click", findSum);
+        
+        
+ //////////////////////////////////////////////
+        ////////// TASK 3 below this line ////////////
+        //////////////////////////////////////////////
+let binSearch = function () {
+document.getElementById("binary-random-array").innerHTML="";
+document.getElementById("binresult").innerHTML="";
+let bininput = document.getElementById("bin-input").value;
+
+if(bininput<0 || bininput>20 || isNaN(bininput)||bininput==""){
+document.getElementById("binresult").innerHTML="The value is out of range 1-14";
+return false;}
+
+else{
+let binrandomarray=[];
+let binrandomarrayLength=14;
+for (var i=0; i<binrandomarrayLength; i++){
+var number = Math.floor(Math.random() * 20);
+                    binrandomarray.push(number);
+                }
+                binrandomarray.sort(function(a,b){return a-b});
+                document.getElementById("binary-random-array").innerHTML = "Random array = [" + binrandomarray + "]";
+
+let bini = (binrandomarray.length)/2;
+let biniaux = bini;
+let biniauxA = binrandomarray.length;
+
+
+
+
+
+while (biniauxA >= 1) {
+if(bininput==binrandomarray[bini]){
+document.getElementById("binresult").innerHTML="<strong>Result:</strong>The array index of founded element is "+bini +".";
+return true;}
+else if (bininput<binrandomarray[bini]) {
+
+
+bini = bini- Math.ceil(biniaux/2);
+biniaux=Math.ceil(biniaux/2);
+biniauxA=Math.floor(biniauxA/2);
+
+}
+else {
+	bini = bini + Math.ceil(biniaux/2);
+biniaux=Math.ceil(biniaux/2);
+biniauxA=Math.floor(biniauxA/2);
+}
+}
+
+}
+}
+
+let binButt=document.getElementById("bin-butt");
+binButt.addEventListener("click", binSearch);
     </script>
 
     <script type="text/babel">
+    
+  
 
         class App extends React.Component { constructor() { super(); this.state = { name: "", lastname: "", displayedName: "", displayedLastname: "" }; } render() { return (
         <div>
