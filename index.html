@@ -192,8 +192,10 @@ else {
 biniaux=Math.ceil(biniaux/2);
 biniauxA=Math.floor(biniauxA/2);
 }
-}
 
+}
+document.getElementById("binresult").innerHTML="<strong>Result:</strong> The array does not contain your value."
+return false;
 }
 }
 
@@ -225,3 +227,4 @@ binButt.addEventListener("click", binSearch);
     </script>
 </body>
 </html>
+
