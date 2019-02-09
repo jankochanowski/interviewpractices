@@ -221,7 +221,7 @@ let calculateAngle = function () {
 document.getElementById("tim-result").innerHTML="";
 let HH = document.getElementById("inp-hour").value;
 let MM = document.getElementById("inp-minute").value;
-if (isNaN(HH) || isNaN(MM) || HH =="" || MM=="" || HH<0 || HH>23 || MM<0 || MM>59) {
+if (isNaN(HH) || isNaN(MM) || HH =="" || MM=="" || HH<0 || HH>11 || MM<0 || MM>59) {
 document.getElementById("tim-result").innerHTML="Empty or incorrect value (time format). HH has range 0-11 and MM has range 0-59.";}
 
 else {
@@ -269,4 +269,5 @@ timbutton.addEventListener("click", calculateAngle);
     </script>
 </body>
 </html>
+
 
