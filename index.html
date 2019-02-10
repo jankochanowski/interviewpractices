@@ -94,7 +94,15 @@
     <div>Decimal to binary converter: enter decimal number to convert it to a binary form.</div>
 <input id="dec-to-bin-input"><button id="dec-to-bin-butt">Submit</button>
 <div id="dec-to-bin"></div>
-	
+	<br>
+    <hr>
+    <br>
+    <h2>Task 7</h2>
+	<p class="task-desc">Given two strings. Write a method to decide if one is a permutation of the other. ("Cracking the Coding Interview").</p>
+    <p>Input 2 strings to compare if one is a permutation of the other. UPPERCASE / lowercase letters and space character do not matter.</p>
+<input id="firststring" value="Jim Morrison"><br><input id="secondstring" value="Mr Mojo Risin"><br>
+<button id="stringpermutationbutton">Submit</button>
+<div id="stringpremutationresult"></div>
     <br>
     <br>
     <br>
@@ -274,6 +282,37 @@ document.getElementById("dec-to-bin").innerHTML="Binary form of the inputed deci
 }}}
 
 document.getElementById("dec-to-bin-butt").addEventListener("click", decimalToBinary);
+//////////////////////////////////////////////
+        ////////// TASK 7 below this line ////////////
+        //////////////////////////////////////////////
+        let permutationCheck = function (){
+document.getElementById("stringpremutationresult").innerHTML="";
+firstString=document.getElementById("firststring").value;
+secondString=document.getElementById("secondstring").value;
+if (firstString=="" || secondString=="") {
+document.getElementById("stringpremutationresult").innerHTML="Both input fields must be filled.";
+}
+
+else{
+firstString=firstString.replace(/\s/g, "");
+secondString=secondString.replace(/\s/g, "");
+firstString = firstString.toLowerCase();
+secondString = secondString.toLowerCase();
+let firstStringArray = firstString.split("");
+let secondStringArray=secondString.split("");
+
+firstStringArray.sort();
+secondStringArray.sort();
+firstStringSorted=firstStringArray.join("");
+secondStringSorted=secondStringArray.join("");
+
+if (firstStringSorted === secondStringSorted){
+document.getElementById("stringpremutationresult").innerHTML="<strong>Result</strong>: SUCCESS! Input strings are the permutation of the same characters.";
+}
+else {document.getElementById("stringpremutationresult").innerHTML="<strong>Result</strong>: Input strings are not a permutation of the same characters.";}
+}}
+
+document.getElementById("stringpermutationbutton").addEventListener("click", permutationCheck);
 	    
     </script>
 
@@ -301,6 +340,7 @@ document.getElementById("dec-to-bin-butt").addEventListener("click", decimalToBi
     </script>
 </body>
 </html>
+
 
 
 
