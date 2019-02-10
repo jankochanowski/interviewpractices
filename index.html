@@ -86,6 +86,14 @@
 <input size="5" id="inp-hour" placeholder="HH"><span>:</span> <input size="5" id="inp-minute" placeholder="MM">
 <button id="time-estim-butt">Calculate the angle</button>
 <div id="tim-result"></div>
+<br>
+    <hr>
+    <br>
+    <h2>Task 6</h2>
+	<p class="task-desc">Decimal to binary conversion algorithm</p>
+    <div>Decimal to binary converter: enter decimal number to convert it to a binary form.</div>
+<input id="dec-to-bin-input"><button id="dec-to-bin-butt">Submit</button>
+<div id="dec-to-bin"></div>
 	
     <br>
     <br>
@@ -240,8 +248,32 @@ document.getElementById("tim-result").innerHTML="The angle between minute and ho
 }}
 let timbutton = document.getElementById("time-estim-butt");
 timbutton.addEventListener("click", calculateAngle);
+//////////////////////////////////////////////
+        ////////// TASK 6 below this line ////////////
+        //////////////////////////////////////////////
 	    
-	    
+	    let decimalToBinary = function(){
+document.getElementById("dec-to-bin").innerHTML="";
+let decimalNumber = document.getElementById("dec-to-bin-input").value;
+
+if (isNaN(decimalNumber) || decimalNumber==""){
+alert("Invalid or empty field.");}
+else {
+let binaryNumberArray = [];
+let decOper = decimalNumber;
+while (decOper > 0) {
+if (decOper % 2 == 1) {
+binaryNumberArray.unshift(1);
+decOper=(decOper-1)/2;
+}
+else {binaryNumberArray.unshift(0);
+decOper=(decOper)/2;
+}
+
+document.getElementById("dec-to-bin").innerHTML="Binary number of the inputed decimal value is "+binaryNumberArray.join("");
+}}}
+
+document.getElementById("dec-to-bin-butt").addEventListener("click", decimalToBinary);
 	    
     </script>
 
@@ -269,5 +301,6 @@ timbutton.addEventListener("click", calculateAngle);
     </script>
 </body>
 </html>
+
 
 
