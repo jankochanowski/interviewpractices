@@ -257,7 +257,7 @@ document.getElementById("dec-to-bin").innerHTML="";
 let decimalNumber = document.getElementById("dec-to-bin-input").value;
 
 if (isNaN(decimalNumber) || decimalNumber==""){
-alert("Invalid or empty field.");}
+document.getElementById("dec-to-bin").innerHTML="Invalid or empty field.";}
 else {
 let binaryNumberArray = [];
 let decOper = decimalNumber;
